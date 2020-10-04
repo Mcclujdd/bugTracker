@@ -26,3 +26,16 @@ input.form-control {
   background: rgba(247, 207, 135, 0.0);
   text-align: center;
 }
+
+table,tr,th {
+  border-radius: 15px;
+  text-shadow: none;
+}
+
+.active_tickets a{
+  color: olive;
+}
+
+table button {
+  background-color: #616161 !important;
+}

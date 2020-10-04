@@ -19,7 +19,7 @@
         <nav class="navbar navbar-toggleable-md navbar-light">
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Tickets</button>
           </form>
           <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,24 +35,49 @@
 
           </div>
         </nav>
-
+<hr>
 <!-- Main Content -->
         <div class="container-fluid " style="background: rgba(60, 136, 63, 0.2)">
           <div class="row">
-            <div class="col-sm-5">
-              <div class="container">
-                <div class="lead">
-                  MIP Ticket
-                </div>
-              </div>
+            <!-- panel for important updates and relevant information that can be dismissed -->
+            <div class="panel panel-info">
+              <!-- populate with script based on form fill on admin side -->
             </div>
-            <div class="col-sm-4">Recently Modified</div>
-            <div class="col-sm-3">New Tickets</div>
           </div>
         </div>
-        <div class="container width-100%">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et elementum tellus. Phasellus a dapibus dui, a cursus est. Sed lobortis leo leo, id maximus elit dictum eu. Pellentesque ultricies placerat mattis. Mauris vulputate ipsum iaculis, vestibulum tortor finibus, pellentesque neque. Nunc bibendum ipsum sed augue viverra, in ornare tellus efficitur. Nam nunc ante, ultrices et tortor sed, lobortis ornare dui. Curabitur elementum nisl est, id vulputate felis imperdiet et. Donec venenatis nibh quis elit tempor, ac consequat urna bibendum. Nulla erat libero, aliquam a interdum ut, cursus in risus. Pellentesque in pharetra eros. Donec tortor augue, rhoncus sit amet posuere quis, interdum id sapien.</p>
+<!-- Selected Bug Information -->
+        <div class="container-fluid">
+          <table class="table table-fluid table-dark active_tickets">
+            <h2>Active Tickets</h2>
+              <tr>
+                <!-- this should populate with a script based on active tickets assigned to current user in the database -->
+                <th>Ticket</th>
+                <th>Status</th>
+                <th>Last Modified</th>
+                <th>Modified by</th>
+                <th>Error Message</th>
+                <th>Placeholder</th>
+              </tr>
+              <tr>
+                <td><a href="#">Link to Ticket</a></td>
+                <td>(date)</td>
+                <td>(status)</td>
+                <td>(date)</td>
+                <td>(error)</td>
+                <td>
+                  <button class="btn dropdown-toggle" data-toggle="dropdown" data-target="ticketOptions">Options</button>
+                  <div class="dropdown-menu" id="ticketOptions">
+                    <a class="dropdown-item" href="#">Delete</a>
+                  </div>
+                </td>
+              </tr>
+          </table>
+          <div class="container-fluid">
+            <h3>More Information</h3>
+            <p>content1: lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
         </div>
+
 <!-- scripts -->
   <div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
