@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "turn";
-$db = "bugTracker";
+$servername = '192.168.1.149';
+$username = 'root';
+$password = 'turn';
+$db = 'bugTracker';
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $db);
 // Check connection
