@@ -1,7 +1,7 @@
 <?php
-$servername = '192.168.1.149';
-$username = 'root';
-$password = 'turn';
+$servername = 'localhost';
+$username = 'phpaccess';
+$password = '1234';
 $db = 'bugTracker';
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $db);
