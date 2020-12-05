@@ -1,4 +1,5 @@
 <?php
+//modify the following data according to specific database information
 $servername = 'localhost';
 $username = 'phpaccess';
 $password = '1234';
