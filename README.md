@@ -3,8 +3,14 @@
 Bug Tracker is a web based interface for tracking bugs in software projects in an extremely simple, yet effective, way.
 
 ## Installation
+The intention of this site is not to be hosted externally at this stage.
 
-Local installation unavailable at this time.(but it is on the horizon!)
+Localhost is an easy option for using on a machine.
+
+In order to run with database functionality, one can use the following:
+ - PHP (for database integration)
+ - MySQL Server (for database hosting)
+ - Apache Server (for hosting site)
 
 ## Usage
 ```
@@ -14,7 +20,5 @@ The Dashboard allows access to your bugs at a glance and gives you easy manipula
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Please make sure to update tests as appropriate.
-
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT]
