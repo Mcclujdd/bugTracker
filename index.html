@@ -40,23 +40,66 @@ require_once(__ROOT__.'/scripts/mysqlAccess.php');
 
           </div>
         </nav>
-<hr>
+
 <!-- Main Content -->
         <div class="container-fluid " style="background: rgba(60, 136, 63, 0.2)">
           <div class="row">
             <!-- panel for important updates and relevant information that can be dismissed -->
-            <div class="panel panel-info">
-              <!-- populate with script based on form fill on admin side -->
-            </div>
+            <div class="panel panel-info"></div>
           </div>
         </div>
-<!-- Selected Bug Information -->
+<!-- Ticket Information adn manipulation -->
         <div class="container-fluid">
           <table class="table table-fluid table-dark active_tickets" id="ticketTable">
             <h2>Active Tickets</h2>
+            <!--modal for newTicket form-->
             <div class="btn">
-              <a class="btn btn-primary bg-success"href="#" onclick="newTicket()">Create New Ticket</a>
+              <button class="btn btn-primary bg-success" data-toggle="modal" data-target="#newTicketModal" >
+                Create New Ticket
+              </button>
             </div>
+            <div class="modal fade" id="newTicketModal" tabindex="-1" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">New Ticket</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+
+                  <div class="modal-body">
+                    <form class="" action="index.html" method="post">
+                      <div class="form-group">
+                        <label class="col-form-label">Specific Error Message:</label>
+                        <input type="text" name="" value="">
+                      </div>
+                      <div class="form-group">
+                        <label class="col-form-label">Describe the situation and how to replicate the bug:</label>
+                        <div>
+                          <!-- <input type="text" value=""> -->
+                          <textarea class="form-control" aria-label="Description..."></textarea>
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">
+                          Submit
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                          Cancel
+                        </button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
             <thead>
               <tr>
                 <!-- this should populate with a script based on active tickets assigned to current user in the database -->
@@ -95,7 +138,6 @@ require_once(__ROOT__.'/scripts/mysqlAccess.php');
             <h3>More Information</h3>
             <p>content1: lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </div>
-        </div>
 
 <!-- scripts -->
   <div>
