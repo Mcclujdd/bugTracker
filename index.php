@@ -2,10 +2,10 @@
 define('__ROOT__',dirname(__FILE__));
 require_once(__ROOT__.'/scripts/mysqlAccess.php');
 
-if(isset($_GET['submit'])){
-  echo $_GET['error'];
-  echo $_GET['description'];
-}else{echo "No data submitted.";}
+if(isset($_POST['submit'])){
+  echo $_POST['error'].'</br>';
+  echo $_POST['description'];
+}
 
 ?>
 
@@ -57,50 +57,11 @@ if(isset($_GET['submit'])){
         <div class="container-fluid">
           <table class="table table-fluid table-dark active_tickets" id="ticketTable">
             <h2>Active Tickets</h2>
-            <!--modal for newTicket form-->
-            <div class="btn">
-              <button class="btn btn-primary bg-success" data-toggle="modal" data-target="#newTicketModal" >
-                Create New Ticket
-              </button>
-            </div>
-            <div class="modal fade" id="newTicketModal" tabindex="-1" role="dialog">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">New Ticket</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
+        </div>
 
-                  <div class="modal-body">
-                    <form class="" action="index.html" method="GET">
-                      <div class="form-group">
-                        <label class="col-form-label">Specific Error Message:</label>
-                        <input class="form-control" type="text" name="error">
-                      </div>
-                      <div class="form-group">
-                        <label class="col-form-label">Describe the situation and how to replicate the bug:</label>
-                        <div>
-                          <!-- <input type="text" name="description"> -->
-                          <textarea class="form-control" name="description" aria-label="Description..."></textarea>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <input class="btn btn-primary" type="submit" name="submit" value="Submit" data-dismiss="modal">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                          Cancel
-                        </button>
-                      </div>
-                    </form>
-                  </div>
+<?php require_once(__ROOT__.'/scripts/newTicket.php');?>
 
 
-
-                    </div>
-                  </div>
-                </div>
-              </div>
 
 
             <thead>
