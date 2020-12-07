@@ -1,7 +1,12 @@
 <?php
-//this stuff doesn't seem to be working, how do I test?
 define('__ROOT__',dirname(__FILE__));
 require_once(__ROOT__.'/scripts/mysqlAccess.php');
+
+if(isset($_GET['submit'])){
+  echo $_GET['error'];
+  echo $_GET['description'];
+}else{echo "No data submitted.";}
+
 ?>
 
 <html lang="en" dir="ltr">
@@ -69,30 +74,28 @@ require_once(__ROOT__.'/scripts/mysqlAccess.php');
                   </div>
 
                   <div class="modal-body">
-                    <form class="" action="index.html" method="post">
+                    <form class="" action="index.html" method="GET">
                       <div class="form-group">
                         <label class="col-form-label">Specific Error Message:</label>
-                        <input type="text" name="" value="">
+                        <input class="form-control" type="text" name="error">
                       </div>
                       <div class="form-group">
                         <label class="col-form-label">Describe the situation and how to replicate the bug:</label>
                         <div>
-                          <!-- <input type="text" value=""> -->
-                          <textarea class="form-control" aria-label="Description..."></textarea>
+                          <!-- <input type="text" name="description"> -->
+                          <textarea class="form-control" name="description" aria-label="Description..."></textarea>
                         </div>
                       </div>
-
-                    </form>
-                  </div>
-
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">
-                          Submit
-                        </button>
+                        <input class="btn btn-primary" type="submit" name="submit" value="Submit" data-dismiss="modal">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">
                           Cancel
                         </button>
                       </div>
+                    </form>
+                  </div>
+
+
 
                     </div>
                   </div>
