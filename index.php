@@ -3,8 +3,8 @@ define('__ROOT__',dirname(__FILE__));
 require_once(__ROOT__.'/scripts/mysqlAccess.php');
 
 if(isset($_POST['submit'])){
-  echo $_POST['error'].'</br>';
-  echo $_POST['description'];
+  echo htmlspecialchars('ErrorMsg: '.$_POST['error']).'</br>';
+  echo htmlspecialchars('Description: '.$_POST['description']);
 }else{
   echo "</br><strong>'Submit' not posted</strong>";
 }
