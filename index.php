@@ -12,6 +12,7 @@ if(isset($_POST['submit'])){
   echo "</br><strong>'Submit' not posted</strong>";
 }
 
+/*
 //submit form data to database
 $error=mysqli_real_escape_string($conn, $_POST['error']);
 $description=mysqli_real_escape_string($conn, $_POST['description']);
@@ -27,16 +28,17 @@ if (mysqli_query($conn, $sqlWrite)){
   //error
   echo 'query error: ' . mysqli_error($conn);
 }
+*/
 /*##############################################*/
 
 //write query for data from Database
-$sqlRead='SELECT error, description FROM tickets';
+$sqlRead='SELECT error,description FROM tickets';
 
 //make query and get result
-$readResult=mysqli_query($conn, $sqlRead);
+$result=mysqli_query($conn, $sqlRead);
 
 //fetch the resulting rows as an array
-$tickets=mysqli_fetch_all($readResult, MYSQLI_ASSOC);
+$tickets=mysqli_fetch_all($result, MYSQLI_ASSOC);
 print_r($tickets);
 
 //free result from memory
@@ -107,35 +109,31 @@ mysqli_close($conn);
               <tr>
                 <!-- this should populate with a script based on active tickets assigned to current user in the database -->
                 <th>Ticket</th>
-                <th>Status</th>
-                <th>Last Modified</th>
-                <th>Modified by</th>
-                <th>Error Message</th>
-                <th>Placeholder</th>
+                <th>ErrorMsg</th>
+                <th>Description</th>
+                <th>Options</th>
               </tr>
             </thead>
               <tbody id="tBody">
-              </tbody>
-          </table>
 
-          <template id="rowTemplate">
-            <tr>
-              <td><a href="#">Link to Ticket</a></td>
-              <td>(date)</td>
-              <td><?php echo htmlspecialchars($tickets['description']); ?></td>
-              <td>(date)</td>
-              <td><?php echo htmlspecialchars($tickets['description']); ?></td>
-              <td>
-                <button class="btn dropdown-toggle" data-toggle="dropdown" data-target="ticketOptions">Options</button>
-                <div class="dropdown-menu" id="ticketOptions">
-                  <a class="dropdown-item" href="#">Export</a>
-                  <a class="dropdown-item" href="#">Squash</a>
-                  <a class="dropdown-item" href="#">Edit</a>
-                  <a class="dropdown-item" href="#" onclick="deleteTicket(this)">Delete</a>
-                </div>
-              </td>
-            </tr>
-          </template>
+                          <?php foreach($tickets as $tickets): ?>
+                            <tr>
+                              <td><a href="#">Link to Ticket</a></td>
+                              <td><?php echo htmlspecialchars($tickets['error']); ?></td>
+                              <td><?php echo htmlspecialchars($tickets['description']); ?></td>
+                              <td>
+                                <button class="btn dropdown-toggle" data-toggle="dropdown" data-target="ticketOptions">Options</button>
+                                <div class="dropdown-menu" id="ticketOptions">
+                                  <a class="dropdown-item" href="#">Export</a>
+                                  <a class="dropdown-item" href="#">Squash</a>
+                                  <a class="dropdown-item" href="#">Edit</a>
+                                  <a class="dropdown-item" href="#" onclick="deleteTicket(this)">Delete</a>
+                                </div>
+                              </td>
+                            </tr>
+                          <?php endforeach; ?>
+                </tbody>
+          </table>
 
           <div class="container-fluid">
             <h3>More Information</h3>
