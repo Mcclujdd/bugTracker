@@ -1,13 +1,50 @@
 <?php
 define('__ROOT__',dirname(__FILE__));
+
+//database access
 require_once(__ROOT__.'/scripts/mysqlAccess.php');
 
+//test for POST data
 if(isset($_POST['submit'])){
   echo htmlspecialchars('ErrorMsg: '.$_POST['error']).'</br>';
   echo htmlspecialchars('Description: '.$_POST['description']);
 }else{
   echo "</br><strong>'Submit' not posted</strong>";
 }
+
+//submit form data to database
+$error=mysqli_real_escape_string($conn, $_POST['error']);
+$description=mysqli_real_escape_string($conn, $_POST['description']);
+
+//query for inserting data
+$sqlWrite="INSERT INTO tickets(error,description) VALUES('$error,$description')";
+
+//submit to database and test for errors
+if (mysqli_query($conn, $sqlWrite)){
+  //success
+  header('Location: index.php');
+} else {
+  //error
+  echo 'query error: ' . mysqli_error($conn);
+}
+/*##############################################*/
+
+//write query for data from Database
+$sqlRead='SELECT error, description FROM tickets';
+
+//make query and get result
+$readResult=mysqli_query($conn, $sqlRead);
+
+//fetch the resulting rows as an array
+$tickets=mysqli_fetch_all($readResult, MYSQLI_ASSOC);
+print_r($tickets);
+
+//free result from memory
+mysqli_free_result($result);
+
+//close connection
+mysqli_close($conn);
+
 ?>
 
 
@@ -85,9 +122,9 @@ if(isset($_POST['submit'])){
             <tr>
               <td><a href="#">Link to Ticket</a></td>
               <td>(date)</td>
-              <td>(status)</td>
+              <td><?php echo htmlspecialchars($tickets['description']); ?></td>
               <td>(date)</td>
-              <td>(error)</td>
+              <td><?php echo htmlspecialchars($tickets['description']); ?></td>
               <td>
                 <button class="btn dropdown-toggle" data-toggle="dropdown" data-target="ticketOptions">Options</button>
                 <div class="dropdown-menu" id="ticketOptions">
