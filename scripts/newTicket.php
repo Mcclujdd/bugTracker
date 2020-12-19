@@ -1,4 +1,6 @@
-<?php?>
+<?php
+require_once(__ROOT__.'/scripts/mysqlAccess.php');
+?>
 <section class="container grey-text">
 
   <form action="index.php" action="index.php" method="POST">
