@@ -5,9 +5,11 @@ require_once(__ROOT__.'/scripts/mysqlAccess.php');
 if(isset($_POST['submit'])){
   echo $_POST['error'].'</br>';
   echo $_POST['description'];
+}else{
+  echo "</br><strong>'Submit' not posted</strong>";
 }
-
 ?>
+
 
 <html lang="en" dir="ltr">
   <head>
