@@ -6,8 +6,8 @@ require_once(__ROOT__.'/scripts/mysqlAccess.php');
 
 //test for POST data
 if(isset($_POST['submit'])){
-  echo htmlspecialchars('ErrorMsg: '.$_POST['error']).'</br>';
-  echo htmlspecialchars('Description: '.$_POST['description']);
+  echo htmlspecialchars('EID: '.$_POST['error']).'</br>';
+  echo htmlspecialchars('Description: '.$_POST['description']).'</br>';
 }else{
   echo "</br><strong>'Submit' not posted</strong>";
 }
