@@ -75,15 +75,30 @@ mysqli_close($conn);
         </div>
 <!-- Ticket Information adn manipulation -->
         <div class="container-fluid">
-          <table class="table table-fluid table-dark active_tickets" id="ticketTable">
+
             <h2>Active Tickets</h2>
         </div>
 
-<?php require_once(__ROOT__.'/scripts/newTicket.php');?>
+<?php
+// require_once(__ROOT__.'/scripts/newTicket.php');
+?>
+
+<section class="container grey-text">
+
+  <form action="index.php" action="index.php" method="POST">
+    <label>Error Message</label>
+    <input type="text" name="error">
+    <label>Description of Error</label>
+    <textarea type="text" name="description"></textarea>
+    <!-- <label>Placeholder</label>
+    <input type="text" name="placeholder"> -->
+  <div>
+    <input type="submit" name="submit" value="Submit New Ticket" class="btn btn-primary bg-success">
+  </div>
+  </form>
 
 
-
-
+<table class="table table-fluid table-dark active_tickets" id="ticketTable">
             <thead>
               <tr>
                 <!-- this should populate with a script based on active tickets assigned to current user in the database -->
@@ -97,13 +112,12 @@ mysqli_close($conn);
             </thead>
               <tbody id="tBody">
               </tbody>
-          </table>
 
           <template id="rowTemplate">
             <tr>
               <td><a href="#">Link to Ticket</a></td>
               <td>(date)</td>
-              <td><?php echo htmlspecialchars($tickets['description']); ?></td>
+              <td><?php echo htmlspecialchars($tickets['error']); ?></td>
               <td>(date)</td>
               <td><?php echo htmlspecialchars($tickets['description']); ?></td>
               <td>
@@ -117,6 +131,8 @@ mysqli_close($conn);
               </td>
             </tr>
           </template>
+        </table>
+
 <!-- scripts -->
   <div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
