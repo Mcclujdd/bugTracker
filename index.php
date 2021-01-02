@@ -17,12 +17,12 @@ $error=mysqli_real_escape_string($conn, $_POST['error']);
 $description=mysqli_real_escape_string($conn, $_POST['description']);
 
 //query for inserting data
-$sqlWrite="INSERT INTO tickets(error,description) VALUES('$error,$description')";
+$sqlWrite="INSERT INTO tickets(error,description) VALUES('$error','$description')";
 
 //submit to database and display errors
-if (mysqli_query($conn, $sqlWrite)){
+if (mysqli_query($conn,$sqlWrite)){
   //success
-  header('Location: index.php');
+  header();
 } else {
   //error
   echo 'query error: ' . mysqli_error($conn);
@@ -63,7 +63,8 @@ mysqli_close($conn);
           <h1>Dashboard</h1>
         </div>
 
-<<?php require_once(__ROOT__.'/navbar.php'); ?>
+<!-- navbar -->
+<?php require_once(__ROOT__.'/navbar.php'); ?>
 
 <!-- Main Content -->
         <div class="container-fluid " style="background: rgba(60, 136, 63, 0.2)">
@@ -116,12 +117,6 @@ mysqli_close($conn);
               </td>
             </tr>
           </template>
-
-          <div class="container-fluid">
-            <h3>More Information</h3>
-            <p>content1: lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-
 <!-- scripts -->
   <div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
