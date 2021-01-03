@@ -1,5 +1,7 @@
 <?php
-include('/scripts/mysqlAccess.php');
+define('__ROOT__',dirname(__FILE__));
+require_once(__ROOT__.'/scripts/mysqlAccess.php');
+
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
