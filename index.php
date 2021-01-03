@@ -97,13 +97,13 @@ mysqli_close($conn);
   </form>
 
 
-
+<!-- tickets table -->
             <thead>
               <tr>
-                <th>Ticket</th>
+                <th>ID</th>
                 <th>Status</th>
                 <th>Description</th>
-                <th>Owner</th>
+                <!-- <th>Owner</th> -->
                 <th>Error</th>
                 <th>Options</th>
               </tr>
@@ -111,13 +111,13 @@ mysqli_close($conn);
               <tbody id="tBody">
               </tbody>
 
-//table contents from database
+<!-- table contents from database -->
           <?php foreach($tickets as $ticket){ ?>
             <tr>
-              <td><a href="details.php?idTicket=<?php echo $ticket['idTicket']?>">Link to Ticket</a></td>
+              <td><a href="details.php?id=<?php echo $ticket['id']?>"><?php echo htmlspecialchars($ticket['id']); ?></a></td>
               <td>(status)</td>
               <td><?php echo htmlspecialchars($ticket['error']); ?></td>
-              <td>(owner)</td>
+              <!-- <td>(owner)</td> -->
               <td><?php echo htmlspecialchars($ticket['description']); ?></td>
               <td>
                 <button class="btn dropdown-toggle" data-toggle="dropdown" data-target="ticketOptions">Options</button>
