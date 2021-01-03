@@ -44,7 +44,6 @@ mysqli_free_result($readResult);
 //close connection
 mysqli_close($conn);
 
-print_r($tickets);
 ?>
 
 
