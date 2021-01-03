@@ -37,14 +37,14 @@ $readResult=mysqli_query($conn, $sqlRead);
 
 //fetch the resulting rows as an array
 $tickets=mysqli_fetch_all($readResult, MYSQLI_ASSOC);
-print_r($tickets);
 
 //free result from memory
-mysqli_free_result($result);
+mysqli_free_result($readResult);
 
 //close connection
 mysqli_close($conn);
 
+print_r($tickets);
 ?>
 
 
@@ -75,7 +75,7 @@ mysqli_close($conn);
         </div>
 <!-- Ticket Information adn manipulation -->
         <div class="container-fluid">
-
+          <table class="table table-fluid table-dark active_tickets" id="ticketTable">
             <h2>Active Tickets</h2>
         </div>
 
@@ -98,28 +98,28 @@ mysqli_close($conn);
   </form>
 
 
-<table class="table table-fluid table-dark active_tickets" id="ticketTable">
+
             <thead>
               <tr>
-                <!-- this should populate with a script based on active tickets assigned to current user in the database -->
                 <th>Ticket</th>
                 <th>Status</th>
-                <th>Last Modified</th>
-                <th>Modified by</th>
-                <th>Error Message</th>
-                <th>Placeholder</th>
+                <th>Description</th>
+                <th>Owner</th>
+                <th>Error</th>
+                <th>Options</th>
               </tr>
             </thead>
               <tbody id="tBody">
               </tbody>
 
-          <template id="rowTemplate">
+//table contents from database
+          <?php foreach($tickets as $ticket){ ?>
             <tr>
               <td><a href="#">Link to Ticket</a></td>
-              <td>(date)</td>
-              <td><?php echo htmlspecialchars($tickets['error']); ?></td>
-              <td>(date)</td>
-              <td><?php echo htmlspecialchars($tickets['description']); ?></td>
+              <td>(status)</td>
+              <td><?php echo htmlspecialchars($ticket['error']); ?></td>
+              <td>(owner)</td>
+              <td><?php echo htmlspecialchars($ticket['description']); ?></td>
               <td>
                 <button class="btn dropdown-toggle" data-toggle="dropdown" data-target="ticketOptions">Options</button>
                 <div class="dropdown-menu" id="ticketOptions">
@@ -130,7 +130,7 @@ mysqli_close($conn);
                 </div>
               </td>
             </tr>
-          </template>
+          <?php } ?>
         </table>
 
 <!-- scripts -->
