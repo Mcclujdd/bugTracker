@@ -30,7 +30,7 @@ if (mysqli_query($conn,$sqlWrite)){
 /*##############################################*/
 
 //write query for data from Database
-$sqlRead='SELECT error, description FROM tickets';
+$sqlRead='SELECT * FROM tickets';
 
 //make query and get result
 $readResult=mysqli_query($conn, $sqlRead);
@@ -114,7 +114,7 @@ mysqli_close($conn);
 //table contents from database
           <?php foreach($tickets as $ticket){ ?>
             <tr>
-              <td><a href="#">Link to Ticket</a></td>
+              <td><a href="details.php?idTicket=<?php echo $ticket['idTicket']?>">Link to Ticket</a></td>
               <td>(status)</td>
               <td><?php echo htmlspecialchars($ticket['error']); ?></td>
               <td>(owner)</td>
