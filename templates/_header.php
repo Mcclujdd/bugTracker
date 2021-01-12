@@ -10,7 +10,7 @@
 
 
 <!-- navbar -->
-<?php require_once(__ROOT__.'/navbar.php'); ?>
+<?php require_once(__ROOT__.'/templates/_navbar.php'); ?>
 
 <!-- Main Content -->
       <div class="container-fluid " style="background: rgba(60, 136, 63, 0.2)">
