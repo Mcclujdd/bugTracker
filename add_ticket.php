@@ -4,7 +4,7 @@ require_once(__ROOT__.'/scripts/mysqlAccess.php');
 ?>
 
 <html lang="en" dir="ltr">
-<?php include(__ROOT__.'/_header.php'); ?>
+<?php include(__ROOT__.'/templates/_header.php'); ?>
 
 <section class="container grey-text">
 
@@ -19,6 +19,5 @@ require_once(__ROOT__.'/scripts/mysqlAccess.php');
     <input type="submit" name="submit" value="Submit New Ticket" class="btn btn-primary bg-success">
   </div>
   </form>
-<?php include('_footer.php'); ?>
-</body>
+<?php include(__ROOT__.'/templates/_footer.php'); ?>
 </html>
