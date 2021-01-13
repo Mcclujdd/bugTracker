@@ -1,14 +1,17 @@
 <?php
 define('__ROOT__',dirname(dirname(__FILE__)));
-require_once(__ROOT__.'/scripts/mysqlAccess.php');
+
+//database access
+include(__ROOT__.'/scripts/mysqlAccess.php');
 ?>
+
 
 <html lang="en" dir="ltr">
 <?php include(__ROOT__.'/templates/_header.php'); ?>
 
 <section class="container grey-text">
 
-  <form action="index.php" action="../index.php" method="POST">
+  <form action="index.php" action="index.php" method="POST">
     <label>Error Message</label>
     <input type="text" name="error">
     <label>Description of Error</label>

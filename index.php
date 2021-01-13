@@ -58,7 +58,7 @@ mysqli_close($conn);
 ?>
 
 <button class="btn btn primary info-success" type="button" name="button">
-  <a href="/add_ticket.php">Add Ticket</a>
+  <a href="add_ticket.php">Add Ticket</a>
 </button>
 
 <!-- Ticket Information adn manipulation -->
