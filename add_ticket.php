@@ -1,8 +1,32 @@
 <?php
-define('__ROOT__',dirname(dirname(__FILE__)));
+define('__ROOT__',dirname(__FILE__));
 
 //database access
-include(__ROOT__.'/scripts/mysqlAccess.php');
+require_once(__ROOT__.'/scripts/mysqlAccess.php');
+
+//submit form data to database
+$error=mysqli_real_escape_string($conn, $_POST['error']);
+$description=mysqli_real_escape_string($conn, $_POST['description']);
+
+//query for inserting data
+$sqlWrite="INSERT INTO tickets (error,description) VALUES('$error','$description')";
+
+//submit to database and display errors
+if (mysqli_query($conn,$sqlWrite)){
+  //success
+  //header("Location: index.php");
+} else {
+  //error
+  echo 'query error: ' . mysqli_error($conn);
+}
+
+// test for POST data
+if(isset($_POST['submit'])){
+  echo htmlspecialchars('EID: '.$_POST['error']).'</br>';
+  echo htmlspecialchars('Description: '.$_POST['description']).'</br>';
+}else{
+  echo "</br><strong>'Submit' not posted</strong>";
+}
 ?>
 
 
