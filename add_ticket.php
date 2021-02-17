@@ -2,22 +2,32 @@
 define('__ROOT__',dirname(__FILE__));
 
 //database access
-require_once(__ROOT__.'/scripts/mysqlAccess.php');
+include(__ROOT__.'/scripts/mysqlAccess.php');
 
-//submit form data to database
-$error=mysqli_real_escape_string($conn, $_POST['error']);
-$description=mysqli_real_escape_string($conn, $_POST['description']);
+$error = $description = '';
+$errors = array('error' => '', 'description' => '');
 
-//query for inserting data
-$sqlWrite="INSERT INTO tickets (error,description) VALUES('$error','$description')";
+if(isset($_POST['submit'])){
 
-//submit to database and display errors
-if (mysqli_query($conn,$sqlWrite)){
-  //success
-  //header("Location: index.php");
-} else {
-  //error
-  echo 'query error: ' . mysqli_error($conn);
+  if(array_filter($errors)){
+    //echo 'errors in the form;'
+  } else {
+
+    $error=mysqli_real_escape_string($conn, $_POST['error']);
+    $description=mysqli_real_escape_string($conn, $_POST['description']);
+
+    //query for inserting data
+    $sqlWrite="INSERT INTO tickets(error,description) VALUES('$error','$description')";
+
+    //submit to database and display errors
+    if (mysqli_query($conn,$sqlWrite)){
+      //success
+      header("Location: index.php");
+    } else {
+      //error
+      echo 'query error: ' . mysqli_error($conn);
+    }
+  }
 }
 
 // test for POST data
@@ -35,7 +45,7 @@ if(isset($_POST['submit'])){
 
 <section class="container grey-text">
 
-  <form action="index.php" action="index.php" method="POST">
+  <form action="add_ticket.php" method="POST">
     <label>Error Message</label>
     <input type="text" name="error">
     <label>Description of Error</label>
