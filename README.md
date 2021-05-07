@@ -5,7 +5,7 @@ Bug Tracker is a web based interface for tracking bugs in software projects in a
 ## Installation
 The intention of this site is not to be hosted externally at this stage.
 
-Localhost is an easy option for using on a machine.
+I test and use localhost on my machines.
 
 In order to run with database functionality, one can use the following:
  - PHP (for database integration)
