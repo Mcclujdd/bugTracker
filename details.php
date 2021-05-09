@@ -25,7 +25,12 @@ if(isset($_GET['id'])){
 <?php include('templates/_header.php'); ?>
 
 <h2>Details page</h2>
-<p></p>
-
+<div class="conatiner card col-md-6">
+  <?php if($ticket): ?>
+    <h4><?php echo htmlspecialchars($ticket['error']); ?></h4>
+    <h1><?php echo htmlspecialchars($ticket['description']); ?></h1>
+  <?php else: ?>
+  <?php endif; ?>
+</div>
 <?php include(__ROOT__.'/templates/_footer.php'); ?>
 </html>
