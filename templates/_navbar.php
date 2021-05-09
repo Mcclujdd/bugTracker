@@ -14,7 +14,7 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home</a>
+                <a class="nav-item nav-link active" href="index.php">Home</a>
                 <a class="nav-item nav-link" href="#">Tickets</a>
                 <a class="nav-item nav-link" href="#">Settings</a>
             </div>
