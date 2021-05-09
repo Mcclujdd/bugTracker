@@ -30,6 +30,7 @@ if(isset($_GET['id'])){
     <h4><?php echo htmlspecialchars($ticket['error']); ?></h4>
     <h1><?php echo htmlspecialchars($ticket['description']); ?></h1>
   <?php else: ?>
+    <h1>No Ticket reference available.</h1>
   <?php endif; ?>
 </div>
 <?php include(__ROOT__.'/templates/_footer.php'); ?>
