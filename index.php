@@ -74,8 +74,6 @@ mysqli_close($conn);
                   <a class="dropdown-item" href="#">Export</a>
                   <a class="dropdown-item" href="#">Squash</a>
                   <a class="dropdown-item" href="#">Edit</a>
-                  <a class="dropdown-item" href="scripts/delete_ticket.php">Delete</a>
-                  <!-- <a class="dropdown-item" href="#" onclick="deleteTicket(this)">Delete</a> -->
                 </div>
               </td>
             </tr>
