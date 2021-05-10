@@ -12,13 +12,13 @@
 
 
 <!-- navbar -->
-<?php include(__ROOT__.'/templates/_navbar.php'); ?>
+
 
 <!-- Main Content -->
       <div class="container-fluid " style="background: rgba(60, 136, 63, 0.2)">
         <div class="row">
           <!-- panel for important updates and relevant information that can be dismissed -->
-          <p>HEADER LOADED</p>
+          <p></p>
           <div class="panel panel-info"></div>
         </div>
       </div>
